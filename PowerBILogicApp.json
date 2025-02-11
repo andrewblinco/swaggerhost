@@ -17,12 +17,6 @@
 				],
 				"description": "Get report",
 				"operationId": "GetReport",
-				"consumes": [
-					"application/json"
-				],
-				"produces": [
-					"application/json"
-				],
 				"parameters": [
 					{
 						"name": "ReportParameters",
