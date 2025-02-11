@@ -46,7 +46,7 @@
 					"200": {
 						"description": "OK",
 						"schema": {
-							"type": "Object"							 
+							"type": "file"							 
 						}
 					}
 				},
