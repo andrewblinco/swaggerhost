@@ -1,0 +1,80 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"title": "Power Bi Logic App",
+		"description": "API for prod-31.australiasoutheast.logic.azure.com",
+		"version": "0.0.0"
+	},
+	"host": "prod-31.australiasoutheast.logic.azure.com:443",
+	"schemes": [
+		"https"
+	],
+	"paths": {
+		"/workflows/a1e628d0d4934a8c8a51822ca91104d1/triggers/When_a_HTTP_request_is_received/paths/invoke": {
+			"post": {
+				"tags": [
+					"Workflows"
+				],
+				"description": "Get report",
+				"operationId": "GetReport",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "ReportParameters",
+						"in": "body",
+						"description": "Report Parameters",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/ReportParameters"
+						}
+					},
+					{
+						"name": "api-version",
+						"in": "query",
+						"description": "Api version",
+						"required": false,
+						"type": "string",
+						"x-example": "2016-10-01"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "file"							 
+						}
+					}
+				},
+				"security": []
+			}
+		}
+	},
+	"definitions": {
+		"ReportParameters": {
+			"description": "Model for ReportParameters",
+			"required": [
+				"BaseCallSignID"
+			],
+			"properties": {
+				"BaseCallSignID": {
+					"type": "integer",
+					"format": "int32",
+					"x-example": "35"
+				}
+			}
+		}
+	},
+	"securityDefinitions": {},
+	"security": [],
+	"tags": [
+		{
+			"name": "Workflows",
+			"description": "Operations about Workflows"
+		}
+	]
+}
