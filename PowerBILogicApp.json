@@ -65,7 +65,7 @@
 		"ReportFile" :{
 		  "description": "Model for ReportFile",
 		  	"properties": {
-				"ReportFile": {
+				"filebase64": {
 					"type": "string"
 				 
 				}
