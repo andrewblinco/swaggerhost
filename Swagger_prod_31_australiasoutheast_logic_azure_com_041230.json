@@ -71,7 +71,7 @@
 		"ReportFile" : {
 		  "description": "Model for ReportParameters",
 		  	"properties": {
-				"BaseCallSignID": {
+				"ReportFile": {
 					"type": "file" 
 			 
 				}
