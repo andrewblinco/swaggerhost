@@ -72,7 +72,7 @@
 		  "description": "Model for ReportParameters",
 		  	"properties": {
 				"ReportFile": {
-					"type": "file" 
+					"type": "string" 
 			 
 				}
 		  } 
