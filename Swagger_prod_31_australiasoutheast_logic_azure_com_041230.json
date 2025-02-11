@@ -46,7 +46,7 @@
 					"200": {
 						"description": "OK",
 						"schema": {
-							"$ref" : "#/definitions/ReportFile"						 
+							"$ref": "#/definitions/ReportFile"					 
 						}
 					}
 				},
@@ -68,14 +68,15 @@
 				}
 			}
 		},
-		"ReportFile" {
-			"description": "Model for ReportFile",
-			"properties": {
-				"ReportFile": {
-					"type": "file"
-					
+		"ReportFile" : {
+		  "description": "Model for ReportParameters",
+		  	"properties": {
+				"BaseCallSignID": {
+					"type": "file" 
+			 
 				}
-			}
+		  } 
+		}
 	},
 	"securityDefinitions": {},
 	"security": [],
