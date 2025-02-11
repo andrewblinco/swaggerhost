@@ -46,7 +46,7 @@
 					"200": {
 						"description": "OK",
 						"schema": {
-							"type": "file"							 
+							"$ref" : "#/definitions/ReportFile"						 
 						}
 					}
 				},
@@ -67,7 +67,15 @@
 					"x-example": "35"
 				}
 			}
-		}
+		},
+		"ReportFile" {
+			"description": "Model for ReportFile",
+			"properties": {
+				"ReportFile": {
+					"type": "file"
+					
+				}
+			}
 	},
 	"securityDefinitions": {},
 	"security": [],
