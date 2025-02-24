@@ -59,6 +59,10 @@
 					"type": "integer",
 					"format": "int32",
 					"x-example": "35"
+				},
+				"Environment": {
+					"type": "string",					
+					"x-example": "STG"
 				}
 			}
 		},
