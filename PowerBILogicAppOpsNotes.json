@@ -1,0 +1,88 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"title": "Power Bi Logic App Ops Notes",
+		"description": "API for prod-63.australiasoutheast.logic.azure.com",
+		"version": "0.0.0"
+	},
+	"host": "prod-63.australiasoutheast.logic.azure.com:443",
+	"schemes": [
+		"https"
+	],
+	"paths": {
+		"/workflows/452916e1e1154cdc83c00aa51e1d65ba/triggers/When_a_HTTP_request_is_received/paths/invoke": {
+			"post": {
+				"tags": [
+					"Workflows"
+				],
+				"description": "Get report",
+				"operationId": "GetReport",
+				"parameters": [
+					{
+						"name": "ReportParameters",
+						"in": "body",
+						"description": "Report Parameters",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/ReportParameters"
+						}
+					},
+					{
+						"name": "api-version",
+						"in": "query",
+						"description": "Api version",
+						"required": false,
+						"type": "string",
+						"x-example": "2016-10-01"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+								"$ref": "#/definitions/ReportFile"					 
+						}
+					}
+				},
+				"security": []
+			}
+		}
+	},
+	"definitions": {
+		"ReportParameters": {
+			"description": "Model for ReportParameters",
+			"required": [
+				"MissionNumber"
+			],
+			"properties": {
+				"MissionNumber": {
+					"type": "integer",
+					"format": "int32",
+					"x-example": "108940"
+				},
+				"Environment": {
+					"type": "string",					
+					"x-example": "STG"
+				}
+			}
+		},
+		"ReportFile" :{
+		  "description": "Model for ReportFile",
+		  	"properties": {
+				"filebase64": {
+					"type": "string"
+				 
+				}
+			}
+		}
+	},
+	
+	"securityDefinitions": {},
+	"security": [],
+	"tags": [
+		{
+			"name": "Workflows",
+			"description": "Operations about Workflows"
+		}
+	]
+}
