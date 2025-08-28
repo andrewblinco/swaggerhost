@@ -182,7 +182,7 @@
 					"200": {
 						"description": "OK",
 						"schema": {
-							"$ref": "#/definitions/SessionId"
+							"$ref": "#/definitions/StartSession"
 						},
 						"examples": {
 							"application/json": {
@@ -250,22 +250,14 @@
 						"x-example": ""
 					},
 					{
+						"name": "EndSession",
 						"in": "body",
-						"name": "body",
+						"description": "EndSession",
+						"required": true,
 						"schema": {
-							"properties": {
-								"ReturnK2Format": {
-									"example": true,
-									"type": "boolean"
-								},
-								"SessionId": {
-									"example": "3f3ccd90-67b5-477d-85cb-043dd588bfad",
-									"type": "string"
-								}
-							},
-							"type": "object"
+							"$ref": "#/definitions/EndSession"
 						}
-					}
+					},
 				],
 				"responses": {
 					"200": {
@@ -302,9 +294,9 @@
 				}
 			}
 		},
-		"SessionId" :
+		"StartSession" :
 		{
-			"description": "Model for sessionId",
+			"description": "Model for StartSession",
 			"required": [
 				"sessionId"
 			],
@@ -312,6 +304,22 @@
 				"sessionId": {
 					"type": "string",
 					"x-example": "3f3ccd90-67b5-477d-85cb-043dd588bfad"
+				}
+			}
+		},
+		"EndSession" :
+		{
+			"description": "Model for EndSession",
+			"required": [
+				"sessionId"
+			],
+			"properties": {
+				"sessionId": {
+					"type": "string",
+					"x-example": "3f3ccd90-67b5-477d-85cb-043dd588bfad"
+				},
+				"ReturnK2Format" {
+					"type" : "boolean"
 				}
 			}
 		},
