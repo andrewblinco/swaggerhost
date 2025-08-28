@@ -237,7 +237,13 @@
 		},
 		"/api/EndSession": {
 			"post": {
-				"consumes": [
+				"tags": [
+					"Web"
+				],
+				"description": "End Session",
+				"operationId": "EndSession",
+				 
+				"produces": [
 					"application/json"
 				],
 				"parameters": [
@@ -266,10 +272,7 @@
 							"type": "string"
 						}
 					}
-				},
-				"description": "End Session",
-				"operationId": "endSession",
-				"summary": "End Session"
+				}	 
 			}
 		}
 	},
