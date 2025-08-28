@@ -318,7 +318,7 @@
 					"type": "string",
 					"x-example": "3f3ccd90-67b5-477d-85cb-043dd588bfad"
 				},
-				"ReturnK2Format" {
+				"ReturnK2Format" : {
 					"type" : "boolean"
 				}
 			}
