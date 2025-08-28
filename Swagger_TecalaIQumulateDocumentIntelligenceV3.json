@@ -1,0 +1,376 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"title": "Azurewebsites",
+		"description": "API for iqumulatetecaladocintelligence.azurewebsites.net",
+		"version": "0.0.0"
+	},
+	"host": "iqumulatetecaladocintelligence.azurewebsites.net",
+	"schemes": [
+		"https"
+	],
+	"paths": {
+		"/api/analyse": {
+			"post": {
+				"tags": [
+					"Web"
+				],
+				"description": "Analyse document",
+				"operationId": "AnalyseDocument",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "Document",
+						"in": "body",
+						"description": "Document",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/Document"
+						}
+					},
+					{
+						"name": "x-functions-key",
+						"in": "header",
+						"description": "x-functions-key",
+						"required": false,
+						"type": "string",
+						"x-example": ""
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Document Fields",
+						"schema": {
+							"type": "string"
+						}
+					}
+				},
+				"security": []
+			}
+		},
+		"/api/document/{AccessCode}": {
+			"post": {
+				"tags": [
+					"Web"
+				],
+				"description": "Get Quote Document",
+				"operationId": "GetQuoteDocument",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "AccessCode",
+						"in": "path",
+						"description": "Access Code",
+						"required": true,						 
+						"type": "string"
+						 
+					},
+					{
+						"name": "env",
+						"in": "query",
+						"description": "Environment",
+						"required": true,						 
+						"type": "string"
+						 
+					},
+					{
+						"name": "x-functions-key",
+						"in": "header",
+						"description": "x-functions-key",
+						"required": false,
+						"type": "string",
+						"x-example": ""
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/QuoteBase64"
+						},
+						"examples": {
+							"application/json": {
+								"content": "JVBERi0x...."
+							}
+						}
+					}
+				},
+				"security": []
+			}
+		},
+		"/api/Base64": {
+			"post": {
+				"tags": [
+					"Web"
+				],
+				"description": "Convert file to base64",
+				"operationId": "ConvertFileToBase64",
+				"consumes": [
+					"multipart/form-data"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "x-functions-key",
+						"in": "header",
+						"description": "x-functions-key",
+						"required": true,
+						"type": "string",
+						"x-example": ""
+					},
+					{
+						"name": "file",
+						"in": "formData",
+						"description": "file",
+						"required": true,
+						"type": "file",
+						"x-example": ""
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/FileBase64"
+						},
+						"examples": {
+							"application/json": {
+								"content": "JVBERi0x....",
+								"name": "AEI Endo Invoice Example.pdf",
+								"mimeType": "application/pdf"
+							}
+						}
+					}
+				},
+				"security": []
+			}
+		},
+		"/api/StartSession": {
+			"post": {
+				"tags": [
+					"Web"
+				],
+				"description": "Start a Session",
+				"operationId": "StartSession",
+				 
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "x-functions-key",
+						"in": "header",
+						"description": "x-functions-key",
+						"required": true,
+						"type": "string",
+						"x-example": ""
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SessionId"
+						},
+						"examples": {
+							"application/json": {
+								"SessionId": "JVBERi0x...." 
+							}
+						}
+					}
+				},
+				"security": []
+			}
+		},
+		"/api/AddFile": {
+			"post": {
+				"tags": [
+					"Web"
+				],
+				"description": "Adds a File",
+				"operationId": "AddFile",
+				 
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "Document",
+						"in": "body",
+						"description": "Document",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/AddFile"
+						}
+					},
+					{
+						"name": "x-functions-key",
+						"in": "header",
+						"description": "x-functions-key",
+						"required": true,
+						"type": "string",
+						"x-example": ""
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "message",
+						"schema": {
+							"type": "string"
+						}
+					}
+				},
+				"security": []
+			}
+		},
+		"/api/EndSession": {
+			"post": {
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "x-functions-key",
+						"in": "header",
+						"description": "x-functions-key",
+						"required": true,
+						"type": "string",
+						"x-example": ""
+					},
+					{
+						"in": "body",
+						"name": "body",
+						"schema": {
+							"properties": {
+								"ReturnK2Format": {
+									"example": true,
+									"type": "boolean"
+								},
+								"SessionId": {
+									"example": "3f3ccd90-67b5-477d-85cb-043dd588bfad",
+									"type": "string"
+								}
+							},
+							"type": "object"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "",
+						"schema": {
+							"type": "string"
+						}
+					}
+				},
+				"description": "End Session",
+				"operationId": "endSession",
+				"summary": "End Session"
+			}
+		}
+	},
+	"definitions": {
+		"Document": {
+			"description": "Model for Document",
+			"required": [
+				"fileBase64"
+			],
+			"properties": {
+				"fileBase64": {
+					"type": "string",
+					"x-example": "JVBERi0xLjUKJeLjz9MKMyAwIG9iago8PC9MZW5ndGggNTMvRmlsdGVyL0ZsYXRlRGVjb2RlPj5zdHJlYW0KdmomItqZB6JZjJIwYTCwB/gzEfijU++0iAGmB3O382aebNJ1zs/oE3SA4AEBL9bZ4L8smzIKZW5kc3RyZWFtCmVuZG9iago0IDAgb2JqCjw8L1N0cnVjdFBhcmVudHMgMC9Gb3JtVHlwZSAxL1N1YnR5cGUvRm9ybS9CQm94WzAgMCA1OTQuOTU5OTYgODQxLjkyXS9SZXNvdXJjZXM8PC9FeHRHU"
+				},
+				"model": {
+					"type": "string",
+					"x-example": "QuoteInvoicesV2"
+				},
+				"pages": {
+					"type": "string",
+					"x-example": "1-2"
+				}
+			}
+		},
+		"SessionId" :
+		{
+			"description": "Model for sessionId",
+			"required": [
+				"sessionId"
+			],
+			"properties": {
+				"sessionId": {
+					"type": "string",
+					"x-example": "3f3ccd90-67b5-477d-85cb-043dd588bfad"
+				}
+			}
+		},
+		"AddFile" :
+		{
+			"description": "Model for AddFile",
+			"required": [
+				"sessionId"
+			],
+			"properties": {
+				"sessionId": {
+					"type": "string",
+					"x-example": "3f3ccd90-67b5-477d-85cb-043dd588bfad"
+				},
+				"FileXml" : {
+					"type": "string",
+					"x-example": "<file><name>filename.txt</name><content>JVBERi0xLjc</content></file>"
+				}
+			}
+		},
+		"QuoteBase64": {
+			"description": "Model for QuoteBase64",
+			"required": [
+				"content"
+			],
+			"properties": {
+				"content": {
+					"type": "string",
+					"x-example": "JVBERi0x...."
+				}
+			}
+		},
+		"FileBase64": {
+			"description": "Model for FileBase64",
+			"required": [
+				"content"
+			],
+			"properties": {
+				"content": {
+					"type": "string",
+					"x-example": "JVBERi0x...."
+				},
+				"mimeType": {
+					"type": "string",
+					"x-example": "application/pdf"
+				},
+				"name": {
+					"type": "string",
+					"x-example": "AEI Endo Invoice Example.pdf"
+				}
+			}
+		}
+	},
+	"securityDefinitions": {},
+	"security": [],
+	"tags": [
+		{
+			"name": "Web",
+			"description": "Operations about Web"
+		}
+	]
+}
