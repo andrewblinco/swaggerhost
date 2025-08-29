@@ -1,0 +1,94 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"title": "Azurewebsites",
+		"description": "API for iqumulatetecaladocintelligence.azurewebsites.net",
+		"version": "0.0.0"
+	},
+	"host": "iqumulatetecaladocintelligence.azurewebsites.net",
+	"schemes": [
+		"https"
+	],
+	"paths": {
+		"/api/EndSession": {
+			"post": {
+				"tags": [
+					"Web"
+				],
+				"description": "End Session",
+				"operationId": "EndSession",
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "x-functions-key",
+						"in": "header",
+						"description": "x-functions-key",
+						"required": true,
+						"type": "string",
+						"x-example": ""
+					},
+					{
+						"name": "EndSession",
+						"in": "body",
+						"description": "EndSession",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/EndSessionRequest"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "ZIP file returned in XML-like format",
+						"schema": {
+							"$ref": "#/definitions/EndSessionResponse"
+						}
+					}
+				}
+			}
+		}
+	},
+	"definitions": {
+		"EndSessionRequest": {
+			"type": "object",
+			"required": [
+				"SessionId",
+				"ReturnK2Format"
+			],
+			"properties": {
+				"SessionId": {
+					"type": "string",
+					"format": "uuid",
+					"example": "e096dc2e-10e6-45ee-9d25-709cfdeb6a12"
+				},
+				"ReturnK2Format": {
+					"type": "boolean",
+					"example": false
+				}
+			}
+		},
+		"EndSessionResponse": {
+			"type": "object",
+			"properties": {
+				"ZipFile": {
+					"type": "string",
+					"example": "UEsFBgAAAAAAAAAAAAAAAAAAAAAAAA=="
+				},
+				"SomethingElse": {
+					"type": "string",
+					"example": "abc"
+				}
+			}
+		}
+	},
+	"securityDefinitions": {},
+	"security": [],
+	"tags": [
+		{
+			"name": "Web",
+			"description": "Operations about Web"
+		}
+	]
+}
