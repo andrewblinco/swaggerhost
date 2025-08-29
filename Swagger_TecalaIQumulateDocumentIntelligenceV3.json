@@ -71,17 +71,15 @@
 						"name": "AccessCode",
 						"in": "path",
 						"description": "Access Code",
-						"required": true,						 
+						"required": true,
 						"type": "string"
-						 
 					},
 					{
 						"name": "env",
 						"in": "query",
 						"description": "Environment",
-						"required": true,						 
+						"required": true,
 						"type": "string"
-						 
 					},
 					{
 						"name": "x-functions-key",
@@ -164,7 +162,6 @@
 				],
 				"description": "Start a Session",
 				"operationId": "StartSession",
-				 
 				"produces": [
 					"application/json"
 				],
@@ -186,7 +183,7 @@
 						},
 						"examples": {
 							"application/json": {
-								"SessionId": "JVBERi0x...." 
+								"SessionId": "JVBERi0x...."
 							}
 						}
 					}
@@ -201,7 +198,6 @@
 				],
 				"description": "Adds a File",
 				"operationId": "AddFile",
-				 
 				"produces": [
 					"application/json"
 				],
@@ -242,7 +238,6 @@
 				],
 				"description": "End Session",
 				"operationId": "EndSession",
-				 
 				"produces": [
 					"application/json"
 				],
@@ -263,21 +258,21 @@
 						"schema": {
 							"$ref": "#/definitions/EndSession"
 						}
-					},
+					}
 				],
 				"responses": {
 					"200": {
 						"description": "OK",
 						"schema": {
-							"$ref": "#/definitions/ZipFile"
+							"$ref": "#/definitions/ZippedFile"
 						},
 						"examples": {
 							"application/json": {
-								"ZipFile": "JVBERi0x...." 
+								"ZipFile": "JVBERi0x...."
 							}
 						}
 					}
-				} 
+				}
 			}
 		}
 	},
@@ -302,8 +297,7 @@
 				}
 			}
 		},
-		"StartSession" :
-		{
+		"StartSession": {
 			"description": "Model for StartSession",
 			"required": [
 				"sessionId"
@@ -315,18 +309,16 @@
 				}
 			}
 		},
-		"ZipFile" :
-		{
-			"description": "Model for ZipFile",			 
+		"ZippedFile": {
+			"description": "Model for ZippedFile",
 			"properties": {
 				"ZipFile": {
 					"type": "string",
 					"x-example": "dfdsfgssfd"
-				} 
+				}
 			}
 		},
-		"EndSession" :
-		{
+		"EndSession": {
 			"description": "Model for EndSession",
 			"required": [
 				"sessionId"
@@ -336,13 +328,12 @@
 					"type": "string",
 					"x-example": "3f3ccd90-67b5-477d-85cb-043dd588bfad"
 				},
-				"ReturnK2Format" : {
-					"type" : "boolean"
+				"ReturnK2Format": {
+					"type": "boolean"
 				}
 			}
 		},
-		"AddFile" :
-		{
+		"AddFile": {
 			"description": "Model for AddFile",
 			"required": [
 				"sessionId"
@@ -352,7 +343,7 @@
 					"type": "string",
 					"x-example": "3f3ccd90-67b5-477d-85cb-043dd588bfad"
 				},
-				"FileXml" : {
+				"FileXml": {
 					"type": "string",
 					"x-example": "<file><name>filename.txt</name><content>JVBERi0xLjc</content></file>"
 				}
