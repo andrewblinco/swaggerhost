@@ -267,12 +267,17 @@
 				],
 				"responses": {
 					"200": {
-						"description": "",
+						"description": "OK",
 						"schema": {
-							"type": "string"
+							"$ref": "#/definitions/ZipFile"
+						},
+						"examples": {
+							"application/json": {
+								"ZipFile": "JVBERi0x...." 
+							}
 						}
 					}
-				}	 
+				} 
 			}
 		}
 	},
@@ -308,6 +313,16 @@
 					"type": "string",
 					"x-example": "3f3ccd90-67b5-477d-85cb-043dd588bfad"
 				}
+			}
+		},
+		"ZipFile" :
+		{
+			"description": "Model for ZipFile",			 
+			"properties": {
+				"ZipFile": {
+					"type": "string",
+					"x-example": "dfdsfgssfd"
+				} 
 			}
 		},
 		"EndSession" :
