@@ -222,9 +222,19 @@
 				],
 				"responses": {
 					"200": {
-						"description": "message",
-						"schema": {
-							"type": "string"
+						"description": "ZIP file returned in XML-like format",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"ZipFile": {
+											"type": "string",
+											"example": "<file><name>session_148251b45d99440f9a33f035efcd2a50.zip</name><content>UEsFBgAAAAAAAAAAAAAAAAAAAAAAAA==</content></file>"
+										}
+									}
+								}
+							}
 						}
 					}
 				},
@@ -304,7 +314,7 @@
 				}
 			}
 		},
-		"ZippedFile": {
+		"ZipFile": {
 			"description": "Model for ZippedFile",
 			"properties": {
 				"ZipFile": {
