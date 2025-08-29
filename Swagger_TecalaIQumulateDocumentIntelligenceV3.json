@@ -256,25 +256,15 @@
 						"description": "EndSession",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/EndSession"
+							"$ref": "#/definitions/EndSessionRequest"
 						}
 					}
 				],
 				"responses": {
 					"200": {
 						"description": "ZIP file returned in XML-like format",
-						"content": {
-							"application/json": {
-								"schema": {
-									"type": "object",
-									"properties": {
-										"ZipFile": {
-											"type": "string",
-											"example": "<file><name>session_148251b45d99440f9a33f035efcd2a50.zip</name><content>UEsFBgAAAAAAAAAAAAAAAAAAAAAAAA==</content></file>"
-										}
-									}
-								}
-							}
+						"schema": {
+							"$ref": "#/definitions/ZipFileResponse"
 						}
 					}
 				}
@@ -314,12 +304,30 @@
 				}
 			}
 		},
-		"ZipFile": {
-			"description": "Model for ZippedFile",
+		"EndSessionRequest": {
+			"type": "object",
+			"required": [
+				"SessionId",
+				"ReturnK2Format"
+			],
+			"properties": {
+				"SessionId": {
+					"type": "string",
+					"format": "uuid",
+					"example": "e096dc2e-10e6-45ee-9d25-709cfdeb6a12"
+				},
+				"ReturnK2Format": {
+					"type": "boolean",
+					"example": false
+				}
+			}
+		},
+		"ZipFileResponse": {
+			"type": "object",
 			"properties": {
 				"ZipFile": {
 					"type": "string",
-					"x-example": "dfdsfgssfd"
+					"example": "<file><name>session_148251b45d99440f9a33f035efcd2a50.zip</name><content>UEsFBgAAAAAAAAAAAAAAAAAAAAAAAA==</content></file>"
 				}
 			}
 		},
