@@ -265,11 +265,6 @@
 						"description": "OK",
 						"schema": {
 							"$ref": "#/definitions/ZippedFile"
-						},
-						"examples": {
-							"application/json": {
-								"ZipFile": "JVBERi0x...."
-							}
 						}
 					}
 				}
