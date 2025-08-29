@@ -328,6 +328,10 @@
 				"ZipFile": {
 					"type": "string",
 					"example": "<file><name>session_148251b45d99440f9a33f035efcd2a50.zip</name><content>UEsFBgAAAAAAAAAAAAAAAAAAAAAAAA==</content></file>"
+				},
+				"SomethingElse": {
+					"type": "string",
+					"example": "abc"
 				}
 			}
 		},
