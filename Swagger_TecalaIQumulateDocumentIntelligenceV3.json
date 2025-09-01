@@ -260,11 +260,21 @@
 						}
 					}
 				],
-				"responses": {
+			"responses": {
 					"200": {
-						"description": "ZIP file returned in XML-like format",
+						"description": "JSON response containing ZIP file data. Format varies based on ReturnK2Format parameter.",
 						"schema": {
 							"$ref": "#/definitions/ZipFileResponse"
+						},
+						"examples": {
+							"application/json": {
+								"K2Format": {
+									"ZipFile": "<file><n>session_abc123.zip</n><content>UEsFBgAAAAAAAAAAAAAAAAAAAAAAAA==</content></file>"
+								},
+								"StandardFormat": {
+									"ZipFile": "UEsFBgAAAAAAAAAAAAAAAAAAAAAAAA=="
+								}
+							}
 						}
 					}
 				}
@@ -324,14 +334,14 @@
 		},
 		"ZipFileResponse": {
 			"type": "object",
+			"required": [
+				"ZipFile"
+			],
 			"properties": {
 				"ZipFile": {
 					"type": "string",
-					"example": "<file><name>session_148251b45d99440f9a33f035efcd2a50.zip</name><content>UEsFBgAAAAAAAAAAAAAAAAAAAAAAAA==</content></file>"
-				},
-				"SomethingElse": {
-					"type": "string",
-					"example": "abc"
+					"description": "When ReturnK2Format=true: Contains XML string with file metadata. When ReturnK2Format=false: Contains base64-encoded ZIP file data.",
+					"example": "UEsFBgAAAAAAAAAAAAAAAAAAAAAAAA=="
 				}
 			}
 		},
