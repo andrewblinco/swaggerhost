@@ -267,13 +267,8 @@
 							"$ref": "#/definitions/ZipFileResponse"
 						},
 						"examples": {
-							"application/json": {
-								"K2Format": {
-									"ZipFile": "<file><n>session_abc123.zip</n><content>UEsFBgAAAAAAAAAAAAAAAAAAAAAAAA==</content></file>"
-								},
-								"StandardFormat": {
-									"ZipFile": "UEsFBgAAAAAAAAAAAAAAAAAAAAAAAA=="
-								}
+							"application/json": {								 
+									"ZipFile": "<file><n>session_abc123.zip</n><content>UEsFBgAAAAAAAAAAAAAAAAAAAAAAAA==</content></file>"								  
 							}
 						}
 					}
@@ -333,7 +328,7 @@
 			}
 		},
 		"ZipFileResponse": {
-			"type": "object",
+			"description": "Model for ZipFileResponse",		 
 			"required": [
 				"ZipFile"
 			],
