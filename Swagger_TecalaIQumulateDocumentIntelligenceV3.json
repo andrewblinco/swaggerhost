@@ -251,9 +251,9 @@
 						"x-example": ""
 					},
 					{
-						"name": "EndSession",
+						"name": "EndSessionRequest",
 						"in": "body",
-						"description": "EndSession",
+						"description": "EndSessionRequest",
 						"required": true,
 						"schema": {
 							"$ref": "#/definitions/EndSessionRequest"
