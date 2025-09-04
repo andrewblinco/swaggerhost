@@ -352,7 +352,11 @@
 				},
 				"ReturnK2Format": {
 					"type": "boolean"
-				}
+				},
+				"CustomFileName": {
+					"type": "string",
+					"x-example": "test.zip"
+				},
 			}
 		},
 		"AddFile": {
